@@ -24,7 +24,7 @@ module InterfaceHelper
   end
   
   def nav_link_to(tab)
-    if request.request_uri.match(/#{tab.name.downcase}/) || ((request.request_uri == "/" or request.request_uri == ) && tab.name == "Home")
+    if request.request_uri.match(/#{tab.name.downcase}/) || ((request.request_uri == "/" or request.request_uri == ) and tab.name == "Home")
       content_tag(:li, %{#{link_to tab.name, tab.url} #{sub_nav_links_to(tab.items)}}, :class=>"on")
     else
       content_tag(:li, link_to(tab.name, tab.url))
